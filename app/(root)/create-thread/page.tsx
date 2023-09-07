@@ -15,10 +15,13 @@ async function Page() {
     redirect("/onboarding");
   }
 
+  const userId = await JSON.parse(JSON.stringify(userInfo._id)); // server -> client component bug fix
+
   return (
     <>
       <h1 className="head-text">Create Thread</h1>
-      <PostThread userId={userInfo._id} />
+      <PostThread userId={userId} />
+      {/* <PostThread userId={userInfo._id} /> */}
     </>
   );
 }
