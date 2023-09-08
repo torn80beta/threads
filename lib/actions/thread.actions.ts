@@ -108,3 +108,19 @@ export async function fetchThreadById(id: string) {
     throw new Error(`Error fetching thread: ${error.message}`);
   }
 }
+
+export async function addCommentToThread(
+  threadId: string,
+  commentText: string,
+  userId: string,
+  path: string,
+) {
+  connectToDB();
+
+  const originalThread = await Thread.findByIdAndUpdate(threadId);
+
+  try {
+  } catch (error: any) {
+    throw new Error(`Error adding comment to thread: ${error.message}`);
+  }
+}
