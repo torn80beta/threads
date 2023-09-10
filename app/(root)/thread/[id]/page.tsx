@@ -23,7 +23,7 @@ async function Page({ params }: { params: { id: string } }) {
   const thread = await fetchThreadById(params.id);
 
   return (
-    // console.log(thread),
+    // console.log(userInfo._id),
     <section className="relative ">
       <div>
         <ThreadCard

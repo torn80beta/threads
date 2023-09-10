@@ -30,6 +30,7 @@ interface Props {
 const Comment = ({ threadId, currentUserImg, currentUserId }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
+  // console.log(currentUserId);
 
   const form = useForm({
     resolver: zodResolver(CommentValidation),
