@@ -9,27 +9,30 @@ import ThreadsTab from "@/components/shared/ThreadsTab";
 
 async function Page({ params }: { params: { id: string } }) {
   const user = await currentUser();
+
   if (!user) {
     return null;
   }
 
   const userInfo = await fetchUser(params.id);
+  console.log(userInfo);
 
   if (!userInfo?.onboarded) {
     redirect("/onboarding");
   }
 
-  const userId = await JSON.parse(JSON.stringify(userInfo._id)); // server -> client component bug fix
+  // const userId = await JSON.parse(JSON.stringify(userInfo._id)); // server -> client component bug fix
 
   return (
     <section>
       <ProfileHeader
-        accountId={userId}
+        accountId={userInfo.id}
         authUserId={user.id}
         name={userInfo.name}
         username={userInfo.username}
         imgUrl={userInfo.image}
         bio={userInfo.bio}
+        type="User"
       />
 
       <div className="mt-9">
@@ -63,7 +66,7 @@ async function Page({ params }: { params: { id: string } }) {
             >
               <ThreadsTab
                 currentUserId={user.id}
-                accountId={userId}
+                accountId={userInfo.id}
                 accountType="User"
               />
             </TabsContent>

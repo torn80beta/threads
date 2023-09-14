@@ -16,6 +16,7 @@ export default async function Home() {
         ) : (
           <>
             {result.posts.map((post) => (
+              // console.log(post),
               <ThreadCard
                 key={post._id}
                 id={post._id}
