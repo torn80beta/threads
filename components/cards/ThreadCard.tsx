@@ -1,4 +1,3 @@
-import { fetchCommunityDetails } from "@/lib/actions/community.actions";
 import { formatDateString } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,14 +37,6 @@ async function ThreadCard({
   comments,
   isComment,
 }: Props) {
-  // let communityDetails: any;
-
-  // if (community) {
-  //   // console.log(community);
-  //   communityDetails = await fetchCommunityDetails(community);
-  //   // console.log(communityDetails);
-  // }
-
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${
